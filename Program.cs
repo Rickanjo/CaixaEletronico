@@ -1,9 +1,15 @@
 ﻿Console.ForegroundColor = ConsoleColor.DarkRed;
 Console.WriteLine("                   --- Caixa Eletrônico ---\n");
 
-Console.WriteLine("Escolha um abaixo: ");
-Console.WriteLine("1 - Sacar");
-Console.WriteLine("2 - Depositar");
+Console.ResetColor();
+
+Console.WriteLine("Este caixa eletrônico so trabalha com notas de 5 reais ou mais. ");
+Console.WriteLine("Notas Disponiveis para seque 5, 10, 20, 50,100 e 200. ");
+Console.WriteLine("O máximo de dinheiro possivel de sacar 2000 Reais ");
+
+Console.WriteLine("\nEscolha um abaixo: ");
+Console.WriteLine("Digite *1* para Sacar");
+Console.WriteLine("Digite *2* para Depositar");
 char tipoOperação = Console.ReadKey().KeyChar;
 
 Console.WriteLine();
@@ -15,33 +21,11 @@ switch (Char.ToUpper(tipoOperação))
 
     case '1':
     operaçãoEscolhida = "Sacar";
-    Console.ForegroundColor = ConsoleColor.Red;
-    break;
+    Console.Write("\nDigite o valor desejado para saque...: ");
+    int valorSaque;
+    bool deuCerto = int.TryParse(Console.ReadLine()!, out valorSaque);
 
-    case '2':
-    operaçãoEscolhida = "Depositar, Depositar está indisponivel no momento procure uma agencia mas perto";
-    Console.ForegroundColor = ConsoleColor.Yellow;
-    break;
-    
-    default:
-    operaçãoEscolhida = "Operação desconhecida";
-    Console.ForegroundColor = ConsoleColor.DarkGray;
-    break;
-}
-
-Console.WriteLine($"\nVocê escolheu a operação: {operaçãoEscolhida}.");
-
-Console.ResetColor();
-
-Console.WriteLine("Este caixa eletrônico so trabalha com notas de 5 reais ou mais. ");
-Console.WriteLine("Notas Disponiveis para seque 5, 10, 20, 50,100 e 200. ");
-Console.WriteLine("O máximo de dinheiro possivel de sacar 2000 Reais ");
-
-Console.Write("\nDigite o valor desejado para saque...: ");
-int valorSaque;
-bool deuCerto = int.TryParse(Console.ReadLine()!, out valorSaque);
-
- if (!deuCerto || valorSaque <= 4) 
+     if (!deuCerto || valorSaque <= 4) 
  {
     Console.ForegroundColor =  ConsoleColor.Red;
     Console.WriteLine("Esse caixa eletrônico não trabalha com esse(s) tipo(s) de nota(s) ");
@@ -70,9 +54,21 @@ bool deuCerto = int.TryParse(Console.ReadLine()!, out valorSaque);
             Console.WriteLine($"{quantidades[i]} nota(s) de {notas[i]} reais");
         }
 
-
-
-
     }
 }
+Console.ResetColor();
+    break;
+
+    case '2':
+    operaçãoEscolhida = "Depositar";
+
+    break;
+    
+    default:
+    operaçãoEscolhida = "Operação desconhecida";
+    break;
+}
+
+Console.WriteLine($"\nVocê escolheu a operação: {operaçãoEscolhida}.");
+
 Console.ResetColor();

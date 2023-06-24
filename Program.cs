@@ -19,7 +19,7 @@ switch (Char.ToUpper(tipoOperação))
     break;
 
     case '2':
-    operaçãoEscolhida = "Depositar";
+    operaçãoEscolhida = "Depositar, Depositar está indisponivel no momento procure uma agencia mas perto";
     Console.ForegroundColor = ConsoleColor.Yellow;
     break;
     

@@ -13,7 +13,7 @@ Thread.Sleep(5000);
 
 Console.WriteLine("Cartão verificado com sucesso ");
 Thread.Sleep(1500);
-Console.Write("Digite a senha.....:");
+Console.Write("Digite a senha.....:");// senha fica saalva aki
 string senha = Console.ReadLine()!;
 
 Thread.Sleep(2000);
@@ -33,7 +33,7 @@ switch (Char.ToUpper(tipoOperação))
     case '1':
     operaçãoEscolhida = "Sacar";
     Console.WriteLine($"\nVocê escolheu: {operaçãoEscolhida}.\n");
-    Console.WriteLine("Notas Disponiveis para seque 5, 10, 20, 50, 100 e 200. ");
+    Console.WriteLine("Notas Disponiveis para seque 20, 50, 100 e 200. ");
     Console.WriteLine("\nO máximo de dinheiro possivel de sacar 2000 Reais\n ");
 
     Console.Write("\nDigite o valor desejado para saque...: ");
@@ -135,7 +135,22 @@ switch (Char.ToUpper(tipoOperação))
              
             }
             else
-            {
+            { 
+                Console.Write("Digite a senha...........: ");
+                string senhaDigitadaTrans = Console.ReadLine()!;
+
+                Console.WriteLine("Verificando a senha...");
+                Thread.Sleep(3000);
+                if (senha == senhaDigitadaTrans)
+                {
+                    Console.WriteLine("Acesso permetido");
+                }else  
+                {
+                    Console.WriteLine("Senha incorreta. \n");
+                    Console.WriteLine("Retire o cartão e insira novamente.");
+        
+                    return;
+                }
                 Console.WriteLine("Em andamento");
                 Thread.Sleep(4000);
                 Console.WriteLine($"Você transferio {valorTransferencia} reais para a conta {contaTransferir}"); 
